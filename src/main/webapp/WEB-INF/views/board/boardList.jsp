@@ -12,29 +12,31 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 	<c:if test="${not empty sessionScope.m_id}">
-		${sessionScope.m_id} 님 반갑습니다.
-		<a href="/logout">로그아웃</a> <br>
-		<a href="/memList">회원보기</a>
+		<a href="/boardRegist">글쓰기</a>
 	</c:if>
 
-	<c:if test="${empty sessionScope.m_id}">
-		<a href="/memRegist">회원가입</a> <br>
-		<form action="login" method="post">
-			아이디 : <input type="text" name="m_id" id="m_id"> <br>
-			비밀번호 : <input type="password" name="m_pw" id="m_pw"> <br>
-			<input type="submit" value="로그인"> 
-		</form>
+	<h1>게시글보기</h1>
+	<table border="1">
+		<tr>
+			<td>글번호</td>
+			<td>제목</td>
+			<td>작성자</td>
+			<td>작성일</td>
+		</tr>
 		
-	</c:if>
-<a href="/boardList">게시판으로</a>
+		<c:forEach var="list" items="${list}">
+			<tr>
+				<td>${list.b_no}</td>
+				<td>${list.b_title}</td>
+				<td>${list.b_writer}</td>
+				<td>${list.b_regDate}</td>
+			</tr>
+		</c:forEach>
+		
+	</table>
+	
+	<a href="/">홈으로</a>
 
 <script type="text/javascript" src="/resources/js/mine.js"></script>
-<script type="text/javascript">
-
-	<c:if test="${msg==false}">
-	alert('로그인실패');
-	</c:if>
-
-</script>
 </body>
 </html>
