@@ -11,5 +11,9 @@
 	<select id="boardList" resultType="org.sp.model.BoardDTO">
 		SELECT * FROM boardtbl
 	</select>
+	
+	<select id="boardRead" resultType="org.sp.model.BoardDTO">
+		SELECT * FROM boardtbl where b_no = #{b_no}
+	</select>
 
 </mapper>

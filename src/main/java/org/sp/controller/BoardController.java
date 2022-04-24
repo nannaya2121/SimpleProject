@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BoardController {
@@ -34,10 +35,16 @@ public class BoardController {
 	
 	@PostMapping("/boardRegist")
 	public String boardRegistProcess(BoardDTO dto) {
-		System.out.println("1111");
 		boardService.boardInsert(dto);
 		
 		return "redirect:/boardList";
+	}
+	
+	@GetMapping("/boardRead")
+	public String boardRead(@RequestParam("b_no") String b_no, Model model) {
+		BoardDTO dto = boardService.boardRead(b_no);
+		model.addAttribute("dto", dto);
+		return "board/boardRead";
 	}
 
 }

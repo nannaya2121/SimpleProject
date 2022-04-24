@@ -12,4 +12,6 @@ public interface BoardMapper {
 
 	public List<BoardDTO> boardList();
 
+	public BoardDTO boardRead(String b_no);
+
 }

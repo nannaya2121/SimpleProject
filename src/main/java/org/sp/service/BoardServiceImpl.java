@@ -26,6 +26,12 @@ public class BoardServiceImpl implements BoardService{
 		return boardList;
 	}
 
+	@Override
+	public BoardDTO boardRead(String b_no) {
+		
+		return mapper.boardRead(b_no);
+	}
+
 	
 	
 
