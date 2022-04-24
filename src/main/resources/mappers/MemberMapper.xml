@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="org.sp.mapper.MemberMapper">
+
+	<insert id="memInsert">
+		insert into memberTBL(m_id, m_pw) values(#{m_id}, #{m_pw})
+	</insert>
+	
+	<select id="memList" resultType="org.sp.model.MemberDTO">
+		select * from memberTBL
+	</select>
+	
+	<select id="memOne" resultType="org.sp.model.MemberDTO">
+		select * from memberTBL where m_no = #{m_no}
+	</select>
+	
+	<delete id="memDelete">
+		delete from memberTBL where m_no = #{m_no}
+	</delete>
+	
+	<update id="memUpdate">
+		update memberTBL set m_id = #{m_id} where m_no = #{m_no}
+	</update>
+	
+	<select id="findByPW" resultType="String">
+		select m_pw from memberTBL where m_id = #{m_id}
+	</select>
+	
+<!-- 	<select id="login" resultType="org.sp.model.MemberDTO">
+		select * from memberTBL where m_id = #{m_id} and m_pw = #{m_pw}
+	</select> -->
+
+</mapper>
