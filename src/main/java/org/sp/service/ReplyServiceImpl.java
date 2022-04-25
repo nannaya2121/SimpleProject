@@ -1,5 +1,7 @@
 package org.sp.service;
 
+import java.util.List;
+
 import org.sp.mapper.ReplyMapper;
 import org.sp.model.ReplyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +15,12 @@ public class ReplyServiceImpl implements ReplyService{
 
 	@Override
 	public int replyInsert(ReplyDTO dto) {
-		System.out.println("in Impl");
 		return mapper.replyInsert(dto);
+	}
+
+	@Override
+	public List<ReplyDTO> replyList() {
+		return mapper.replyList();
 	}
 
 	

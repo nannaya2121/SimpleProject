@@ -14,6 +14,7 @@
 ${dto}
 
 	<h1>게시글내용</h1>
+	<input type="hidden" name="r_boardNum" id="r_boardNum" value="${dto.b_no}">
 	제목 : <span>${dto.b_title}</span> <br>
 	내용 : <span>${dto.b_content}</span> <br>
 	작성자 : <span>${dto.b_writer}</span> <br>
@@ -35,6 +36,6 @@ ${dto}
 	
 	<a href="/">홈으로</a>
 
-<script type="text/javascript" src="/resources/js/mine.js"></script>
+<script type="text/javascript" src="/resources/js/reply.js"></script>
 </body>
 </html>

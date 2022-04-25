@@ -5,15 +5,15 @@
 <mapper namespace="org.sp.mapper.BoardMapper">
 
 	<insert id="boardInsert">
-		INSERT INTO boardtbl(b_title, b_content, b_writer) VALUES(#{b_title}, #{b_content}, #{b_writer})
+		INSERT INTO boardTBL(b_title, b_content, b_writer) VALUES(#{b_title}, #{b_content}, #{b_writer})
 	</insert>
 	
 	<select id="boardList" resultType="org.sp.model.BoardDTO">
-		SELECT * FROM boardtbl
+		SELECT * FROM boardTBL
 	</select>
 	
 	<select id="boardRead" resultType="org.sp.model.BoardDTO">
-		SELECT * FROM boardtbl where b_no = #{b_no}
+		SELECT * FROM boardTBL where b_no = #{b_no}
 	</select>
 
 </mapper>

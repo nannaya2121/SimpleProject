@@ -5,7 +5,12 @@
 <mapper namespace="org.sp.mapper.ReplyMapper">
 
 	<insert id="replyInsert">
-		INSERT INTO replytbl(r_writer, r_content) VALUES(#{r_writer}, #{r_content})
+		INSERT INTO replyTBL(r_writer, r_boardNum, r_content) 
+		VALUES(#{r_writer}, #{r_boardNum}, #{r_content})
 	</insert>
+	
+	<select id="replyList" resultType="org.sp.model.ReplyDTO">
+		SELECT * FROM replyTBL
+	</select>
 
 </mapper>
