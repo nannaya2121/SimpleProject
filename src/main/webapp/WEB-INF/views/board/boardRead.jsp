@@ -26,12 +26,10 @@ ${dto}
 	내용 : <input type="text" name="r_content" id="r_content">
 	<input type="button" id="replyBtn" value="등록하기"><br>
 	
-	<table border="1" id="replyTBL">
-		<tr>
-			<td>아이디</td>
-			<td>내용</td>
-		</tr>
-	</table>
+	<div id="replyShowZone">
+	
+	</div>
+	
 	
 	
 	<a href="/">홈으로</a>

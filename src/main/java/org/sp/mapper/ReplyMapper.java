@@ -17,6 +17,6 @@ public interface ReplyMapper {
 
 	public int replyInsert(ReplyDTO dto);
 
-	public List<ReplyDTO> replyList();
+	public List<ReplyDTO> replyList(String r_boardNum);
 
 }

@@ -8,7 +8,7 @@ public interface ReplyService {
 
 	int replyInsert(ReplyDTO dto);
 
-	List<ReplyDTO> replyList();
+	List<ReplyDTO> replyList(String r_boardNum);
 
 
 }

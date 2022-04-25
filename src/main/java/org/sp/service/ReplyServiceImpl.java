@@ -19,8 +19,8 @@ public class ReplyServiceImpl implements ReplyService{
 	}
 
 	@Override
-	public List<ReplyDTO> replyList() {
-		return mapper.replyList();
+	public List<ReplyDTO> replyList(String r_boardNum) {
+		return mapper.replyList(r_boardNum);
 	}
 
 	

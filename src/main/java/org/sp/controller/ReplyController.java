@@ -1,12 +1,15 @@
 package org.sp.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.sp.model.ReplyDTO;
 import org.sp.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -26,11 +29,14 @@ public class ReplyController {
 		}
 	}
 	
-	@PostMapping("/replyLisy")
+	
+	//Ajax return 값으로 List 형태로는 보낼 수 없음. 
+	//pom.xml 에 jackson-core 와 jackson-databind를 넣어주면 해결 됨.
+	@PostMapping("/replyList")
 	@ResponseBody
-	public List<ReplyDTO> replyLisy() {
-		System.out.println("타니?");
-		List<ReplyDTO> list = replyService.replyList();
+	public List<ReplyDTO> replyLisy(@RequestParam("r_boardNum") String r_boardNum) {
+		List<ReplyDTO> list = replyService.replyList(r_boardNum);
+		System.out.println(list.toString());
 		return list;
 	}
 }
