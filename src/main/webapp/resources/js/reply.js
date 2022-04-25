@@ -1,10 +1,11 @@
 $(function(){
 	
 	replyListView();
-	
 })
 
 function replyListView(){
+	
+	var r_writer = $('#r_writer').val();
 	
 	var r_boardNum = $('#r_boardNum').val();
 	
@@ -14,11 +15,15 @@ function replyListView(){
 			data: {r_boardNum:r_boardNum},    
 			success: function(data) {
 				console.log(data);
-				var replyTBL = "<table border='1'><tr><td>작성자</td><td>작성내용</td></tr>";
+				var replyTBL = "<table border='1'><tr><td>작성자</td><td>작성내용</td><td>삭제</td></tr>";
 				$(data).each(function(){
-					
-					 replyTBL += "<tr><td>"+this.r_writer+"</td><td>"+ this.r_content + "</td></tr>";
-				
+					if(r_writer == this.r_writer){
+					 replyTBL += "<tr><td>"+this.r_writer+"</td><td>"
+				+ this.r_content + "</td><td><button onclick='replyDelete("+this.r_no+")'>삭제하기</button></td></tr>";
+				}else{
+					replyTBL += "<tr><td>"+this.r_writer+"</td><td>"
+				+ this.r_content + "</td><td></td></tr>";
+				}
 				});
 			replyTBL += "</table>";
 			
@@ -37,6 +42,28 @@ function replyListView(){
 		
 	}
 	
+function replyDelete(r_no){
+	$.ajax({
+			type: "POST",               
+			url: "/replyDelete",     
+			data: {r_no:r_no},         
+			success: function(){ 
+				$('#replyShowZone').html('');
+				replyListView()
+				},
+			error:function(request, status, error){
+
+				alert("code:"+request.status
+				+"\n"+"message:"+request.responseText
+				+"\n"+"error:"+error);
+
+			}
+		});
+	
+}
+
+
+
 $('#replyBtn').click(function(){
 		var r_boardNum = $('#r_boardNum').val();
 		var r_writer = $('#r_writer').val();

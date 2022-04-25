@@ -1,8 +1,6 @@
 package org.sp.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.sp.model.ReplyDTO;
 import org.sp.service.ReplyService;
@@ -38,5 +36,13 @@ public class ReplyController {
 		List<ReplyDTO> list = replyService.replyList(r_boardNum);
 		System.out.println(list.toString());
 		return list;
+	}
+	
+	@PostMapping("/replyDelete")
+	@ResponseBody
+	public String replyDelete(@RequestParam("r_no") String r_no) {
+		System.out.println("타니?");
+		replyService.replyDelete(r_no);
+		return "Success";
 	}
 }

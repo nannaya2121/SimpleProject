@@ -19,4 +19,6 @@ public interface ReplyMapper {
 
 	public List<ReplyDTO> replyList(String r_boardNum);
 
+	public void replyDelete(String r_no);
+
 }

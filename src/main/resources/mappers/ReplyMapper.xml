@@ -12,5 +12,9 @@
 	<select id="replyList" resultType="org.sp.model.ReplyDTO">
 		SELECT * FROM replyTBL WHERE r_boardNum = #{String r_boardNum}
 	</select>
+	
+	<delete id="replyDelete">
+		DELETE FROM replyTBL WHERE r_no = #{r_no}
+	</delete>
 
 </mapper>

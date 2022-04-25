@@ -23,6 +23,12 @@ public class ReplyServiceImpl implements ReplyService{
 		return mapper.replyList(r_boardNum);
 	}
 
+	@Override
+	public void replyDelete(String r_no) {
+		
+		mapper.replyDelete(r_no);
+	}
+
 	
 	
 	

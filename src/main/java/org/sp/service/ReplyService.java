@@ -10,5 +10,7 @@ public interface ReplyService {
 
 	List<ReplyDTO> replyList(String r_boardNum);
 
+	void replyDelete(String r_no);
+
 
 }
